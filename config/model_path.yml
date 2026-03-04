@@ -1,0 +1,2 @@
+# 训练得到的模型保存路径，相对项目根或绝对路径
+lstm_path: "output/model/lstm.pt"

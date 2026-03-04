@@ -39,7 +39,7 @@ class ClosePredictorLSTM(nn.Module):
             dropout=dropout if num_layers > 1 else 0.0,
             bidirectional=bidirectional,
         )
-        self.linear = nn.Linear(hidden_size * num_directions, 1)
+        self.linear = nn.Linear(hidden_size * num_directions, 1)  # 默认 bias=True
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -87,7 +87,7 @@ class MultiCategoryLSTM(nn.Module):
                 self.valid_indices.append((start, start + d))
             start += d
         total_hidden = len(self.lstms) * hidden_per_category
-        self.fc = nn.Linear(total_hidden, 1)
+        self.fc = nn.Linear(total_hidden, 1)  # 默认 bias=True，输出 = W@h + b
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """

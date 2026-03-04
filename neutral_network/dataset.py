@@ -190,7 +190,7 @@ def build_datasets_by_category(
     X_val = (X_val - mean) / std
     X_test = (X_test - mean) / std
 
-    scaler_dict = {"mean": mean, "std": std}
+    scaler_dict = {"mean": mean, "std": std, "target_mean": float(y_train.mean())}
     train_ds = StockCloseDataset(X_train, y_train)
     val_ds = StockCloseDataset(X_val, y_val)
     test_ds = StockCloseDataset(X_test, y_test)
