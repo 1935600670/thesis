@@ -1,0 +1,2 @@
+# 可视化结果（图片）保存目录，相对项目根或绝对路径
+lstm_path: "output/images/lstm"
